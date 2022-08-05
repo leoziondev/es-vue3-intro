@@ -1,8 +1,7 @@
 const app = {
   data() {
     return {
-      name: 'Jhon',
-      lastname: 'Doe',
+      siteName: 'VueJS 3',
       products: [
         {
           id: 1,
@@ -18,7 +17,14 @@ const app = {
           image: './assets/images/quanto-mais-idiota-melhor.jpg',
           stars: 0
         },
-      ]
+      ],
+      cart: [],
+    }
+  },
+
+  methods: {
+    addCart (product) {
+      this.cart.push(product)
     }
   }
 }
