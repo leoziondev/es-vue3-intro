@@ -11,6 +11,10 @@
     <h1>Curso de VueJS 3</h1>
 
     <p>{{ name }} {{ lastname }}</p>
+
+    <img v-bind:src="product.image" v-bind:alt="product.title" style="width: 200px">
+    
+    <img :src="product2.image" :alt="product2.title" style="width: 200px">
   </div>
 
   <script src="https://unpkg.com/vue@next"></script>
