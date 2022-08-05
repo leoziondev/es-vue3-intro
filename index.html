@@ -13,8 +13,14 @@
     <p>{{ name }} {{ lastname }}</p>
 
     <img v-bind:src="product.image" v-bind:alt="product.title" style="width: 200px">
-    
+    <strong v-if="product.stars > 0">{{ product.stars }}</strong>
+
     <img :src="product2.image" :alt="product2.title" style="width: 200px">
+    <strong v-show="product2.stars > 0">{{ product2.stars }}</strong>
+
+    <!-- <div v-if="number == 2">Dois</div>
+    <div v-else-if="number == 3">Três</div>
+    <div v-else>Anyway</div> -->
   </div>
 
   <script src="https://unpkg.com/vue@next"></script>
