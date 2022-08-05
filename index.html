@@ -7,13 +7,17 @@
   <title>VueJS 3 Essencial</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .button-disabled:disabled {
+      cursor: not-allowed;
+    }
+  </style>
 </head>
 <body class="bg-slate-900 text-slate-400">
   <div id="app">
     <div class="max-w-7xl mx-auto flex items-center justify-between h-32 px-4">
       <h1 class="text-xl font-bold text-white">Curso de <span class="text-teal-300">{{ siteName }}</span></h1>
 
-      <!-- <div :style="{backgroundColor: bgColor, color: textColor, padding: '5px 15px', borderRadius: '8px'}"> -->
       <div :style="styles">
         Carrinho ({{ cart.length }})
       </div>
@@ -38,22 +42,16 @@
             <strong>{{ product.stars }}</strong> Avaliações
           </p>
           <div class="mt-3">
-            <a
-              href="#"
-              @click.prevent="removeCart(product)"
-              v-if="inCart(product)"
-              class="bg-teal-300 hover:bg-teal-400 text-slate-900 font-semibold tracking-wilder py-1 px-4 rounded-md"
-            >
-              Remove cart
-            </a>
-            <a
-              href="#"
+            <button
               @click.prevent="addCart(product)"
-              v-else
-              class="bg-teal-300 hover:bg-teal-400 text-slate-900 font-semibold tracking-wilder py-1 px-4 rounded-md"
+              :disabled="inCart(product)"
+              :class="[
+                'bg-teal-300 hover:bg-teal-400 text-slate-900 font-semibold tracking-wilder py-1 px-4 rounded-md disabled:opacity-25',
+                {'button-disabled' : inCart(product)}
+              ]"
             >
               Add cart
-            </a>
+            </button>
           </div>
         </li>
       </ul>
