@@ -36,29 +36,20 @@
       </p>
       <ul class="grid grid-cols-2 md:grid-cols-4 gap-4">
         <li v-for="product in products" :key="product.id">
-          <img :src="product.image" :alt="product.title" style="width: 200px" class="h-72 object-cover" />
-          <p class="text-slate-200 font-semibold text-md mt-1">{{ product.title }}</p>
-          <p v-if="product.stars > 0" class="text-xs">
-            <strong>{{ product.stars }}</strong> Avaliações
-          </p>
-          <div class="mt-3">
-            <button
-              @click.prevent="addCart(product)"
-              :disabled="inCart(product)"
-              :class="[
-                'bg-teal-300 hover:bg-teal-400 text-slate-900 font-semibold tracking-wilder py-1 px-4 rounded-md disabled:opacity-25',
-                {'button-disabled' : inCart(product)}
-              ]"
-            >
-              Add cart
-            </button>
-          </div>
+          <product-detail
+            :product="product"
+            :product-in-cart="inCart(cart)"
+          />          
         </li>
-      </ul>
+      </ul>      
     </div>
   </div>
 
   <script src="https://unpkg.com/vue@next"></script>
   <script src="./app.js"></script>
+  <script src="./components/ProductDetail.js"></script>
+  <script>
+    app.mount('#app')
+  </script>
 </body>
 </html>

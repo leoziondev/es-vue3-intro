@@ -1,4 +1,4 @@
-const app = {
+const myApp = {
   data() {
     return {
       siteName: 'VueJS 3',
@@ -66,4 +66,4 @@ const app = {
   }
 }
 
-Vue.createApp(app).mount('#app')
+const app = Vue.createApp(myApp)
