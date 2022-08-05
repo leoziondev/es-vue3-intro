@@ -37,6 +37,12 @@ const app = {
       this.cart = this.cart.filter((prod) => product != prod)
     }
   },
+
+  computed: {
+    fullname () {
+      return this.name + ' ' + this.lastname
+    }
+  }
 }
 
 Vue.createApp(app).mount('#app')
