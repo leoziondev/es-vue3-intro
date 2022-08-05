@@ -21,6 +21,15 @@ const app = {
         },
       ],
       cart: [],
+      // textColor: '#e2e8f0',
+      // bgColor: '#1e293b'
+      styles: {
+        backgroundColor: '#1e293b',
+        color: '#e2e8f0',
+        padding: '5px 15px',
+        borderRadius: '8px'
+      },
+      themeBlack: true
     }
   },
 
@@ -35,6 +44,18 @@ const app = {
 
     removeCart (product) {
       this.cart = this.cart.filter((prod) => product != prod)
+    },
+
+    toggleTheme () {
+      this.themeBlack = !this.themeBlack
+
+      if (this.themeBlack) {         
+        this.styles.backgroundColor = '#f97316'
+        this.styles.color = '#0f172a'
+      } else {
+        this.styles.backgroundColor = '#1e293b'
+        this.styles.color = '#e2e8f0'
+      }
     }
   },
 
