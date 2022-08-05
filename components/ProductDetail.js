@@ -19,7 +19,8 @@ const productDetail = {
     </div>
   `,
 
-  // props: ['product', 'productInCart'],
+  emits: ['addToCart'],
+
   props: {
     product: {
       type: Object,
@@ -39,7 +40,7 @@ const productDetail = {
 
   methods: {
     addCart (product) {
-      alert('Add Product')
+      this.$emit('addToCart', product)
     }
   }
 }
