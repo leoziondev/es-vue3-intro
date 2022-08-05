@@ -25,7 +25,22 @@
             <strong>{{ product.stars }}</strong> Avaliações
           </p>
           <div class="mt-3">
-            <a href="#" v-on:click.prevent="addCart(product)" class="bg-teal-300 hover:bg-teal-400 text-slate-900 font-semibold tracking-wilder py-1 px-4 rounded-md">Add cart</a>
+            <a
+              href="#"
+              @click.prevent="removeCart(product)"
+              v-if="inCart(product)"
+              class="bg-teal-300 hover:bg-teal-400 text-slate-900 font-semibold tracking-wilder py-1 px-4 rounded-md"
+            >
+              Remove cart
+            </a>
+            <a
+              href="#"
+              @click.prevent="addCart(product)"
+              v-else
+              class="bg-teal-300 hover:bg-teal-400 text-slate-900 font-semibold tracking-wilder py-1 px-4 rounded-md"
+            >
+              Add cart
+            </a>
           </div>
         </li>
       </ul>

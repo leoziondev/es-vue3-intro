@@ -2,6 +2,8 @@ const app = {
   data() {
     return {
       siteName: 'VueJS 3',
+      name: 'Jhon',
+      lastname: 'Doe',
       products: [
         {
           id: 1,
@@ -25,8 +27,16 @@ const app = {
   methods: {
     addCart (product) {
       this.cart.push(product)
+    },
+
+    inCart (product) {
+      return this.cart.indexOf(product) != -1
+    },
+
+    removeCart (product) {
+      this.cart = this.cart.filter((prod) => product != prod)
     }
-  }
+  },
 }
 
 Vue.createApp(app).mount('#app')
